@@ -5,29 +5,29 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeService {
+export class DogService {
 
-  private baseUrl = 'http://localhost:8080/springboot-crud-rest/api/v1/employees';
+  private baseUrl = 'http://localhost:8080/springboot-crud-rest/api/v1/dogs'; // TODO conferir
 
   constructor(private http: HttpClient) { }
 
-  getEmployee(id: number): Observable<any> {
+  getDog(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createEmployee(employee: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, employee);
+  createDog(dog: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}`, dog);
   }
 
-  updateEmployee(id: number, value: any): Observable<Object> {
+  updateDog(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  deleteEmployee(id: number): Observable<any> {
+  deleteDog(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  getEmployeesList(): Observable<any> {
+  getDogsList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
 }

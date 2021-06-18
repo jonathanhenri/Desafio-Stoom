@@ -1,16 +1,16 @@
-import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
-import { CreateEmployeeComponent } from './create-employee/create-employee.component';
+import { DogDetailsComponent } from './dog-details/dog-details.component';
+import { CreateDogComponent } from './create-dog/create-dog.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { DogListComponent } from './dog-list/dog-list.component';
+import { UpdateDogComponent } from './update-dog/update-dog.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'employee', pathMatch: 'full' },
-  { path: 'employees', component: EmployeeListComponent },
-  { path: 'add', component: CreateEmployeeComponent },
-  { path: 'update/:id', component: UpdateEmployeeComponent },
-  { path: 'details/:id', component: EmployeeDetailsComponent },
+  { path: '', redirectTo: 'dog', pathMatch: 'full' },
+  { path: 'dogs', component: DogListComponent },
+  { path: 'add', component: CreateDogComponent },
+  { path: 'update/:id', component: UpdateDogComponent },
+  { path: 'details/:id', component: DogDetailsComponent },
 ];
 
 @NgModule({
