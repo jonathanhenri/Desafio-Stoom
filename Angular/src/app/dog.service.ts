@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DogService {
 
-  private baseUrl = 'http://localhost:8080/springboot-crud-rest/api/v1/dogs'; // TODO conferir
+  private baseUrl = 'http://localhost:8181/springboot-crud-rest/api/v1/dogs'; // TODO conferir
 
   constructor(private http: HttpClient) { }
 

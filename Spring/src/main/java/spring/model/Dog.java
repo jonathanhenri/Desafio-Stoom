@@ -39,24 +39,24 @@ public class Dog {
 	public String getNome() {
 		return nome;
 	}
-	public void setNome(String firstName) {
-		this.nome = firstName;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 	@Column(name = "raca", nullable = false)
 	public String getRaca() {
 		return raca;
 	}
-	public void setRaca(String lastName) {
-		this.raca = lastName;
+	public void setRaca(String raca) {
+		this.raca = raca;
 	}
 	
 	@Column(name = "nome_dono", nullable = false)
 	public String getNomeDono() {
 		return nomeDono;
 	}
-	public void setNomeDono(String emailId) {
-		this.nomeDono = emailId;
+	public void setNomeDono(String nomeDono) {
+		this.nomeDono = nomeDono;
 	}
 
 	@Override
