@@ -6,3 +6,5 @@
 .idea/libraries/Maven__mysql_mysql_connector_java_8_0_22.xml
 .idea/libraries/Maven__org_projectlombok_lombok_1_16_22.xml
 .idea/modules.xml
+.idea/
+*.xml
