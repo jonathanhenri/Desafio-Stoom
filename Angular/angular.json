@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular8-springboot-client",
+            "outputPath": "dist/Angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -53,18 +53,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular8-springboot-client:build"
+            "browserTarget": "Angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular8-springboot-client:build:production"
+              "browserTarget": "Angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular8-springboot-client:build"
+            "browserTarget": "Angular:build"
           }
         },
         "test": {
@@ -105,16 +105,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular8-springboot-client:serve"
+            "devServerTarget": "Angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular8-springboot-client:serve:production"
+              "devServerTarget": "Angular:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "angular8-springboot-client"
+  "defaultProject": "Angular"
 }

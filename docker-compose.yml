@@ -1,5 +1,5 @@
 # Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
-version: '3.7'
+version: "3.7"
 
 # Define services
 services:
@@ -22,13 +22,11 @@ services:
       - backend
       - frontend
 
-  # Frontend Service 
+  # Frontend Service
   app-client:
-    build:
-      context: Angular # Use an image built from the specified dockerfile in the `Angular` directory.
-      dockerfile: Dockerfile
+    build: ./angular
     ports:
-      - "4200:4200" # Map the exposed port 80 on the container to port 8081 on the host machine
+      - "4200:80" # Map the exposed port 80 on the container to port 8081 on the host machine
     restart: always
     depends_on:
       - app-server
@@ -44,10 +42,10 @@ services:
       - "3306:3306"
     restart: always
     environment:
-      MYSQL_DATABASE: 'stoom'
-      MYSQL_USER: 'stoom'
-      MYSQL_PASSWORD: 'stoom'
-      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: "stoom"
+      MYSQL_USER: "stoom"
+      MYSQL_PASSWORD: "stoom"
+      MYSQL_ROOT_PASSWORD: "root"
     networks:
       - backend
 
