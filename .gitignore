@@ -1,3 +1,8 @@
 
 .idea/libraries/Maven__commons_io_commons_io_2_4.xml
 .idea/libraries/Maven__io_swagger_swagger_annotations_1_5_14.xml
+.idea/compiler.xml
+.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml
+.idea/libraries/Maven__mysql_mysql_connector_java_8_0_22.xml
+.idea/libraries/Maven__org_projectlombok_lombok_1_16_22.xml
+.idea/modules.xml

@@ -27,7 +27,7 @@ export class CreateDogComponent implements OnInit {
   save() {
     this.dogService
     .createDog(this.dog).subscribe(data => {
-      console.log(data);
+      console.log('DOG:' + data);
       this.dog = new Dog();
       this.gotoList();
     },

@@ -35,22 +35,8 @@ public class DogController {
 	private DogRepository dogsRepository;
 
 	@GetMapping("/dogs")
-//	@RequestMapping(value = "/dogs", method = RequestMethod.GET)
 	public List<Dog> getAllDogs() {
-		System.out.println("TESTE");
-//		return dogsRepository.findAll();
-		return listDogs();
-	}
-	
-	private List<Dog> listDogs(){
-		List<Dog> list = new ArrayList<>();
-		list.add(new Dog("cacau","vira","jona"));
-		list.add(new Dog("cacau2","vira","jona"));
-		list.add(new Dog("cacau3","vira","jona"));
-		list.add(new Dog("cacau4","vira","jona"));
-		list.add(new Dog("cacau5","vira","jona"));
-		
-		return list;
+		return dogsRepository.findAll();
 	}
 
 	@GetMapping("/dogs/{id}")
@@ -63,7 +49,6 @@ public class DogController {
 
 	@PostMapping("/dogs")
 	public Dog createDog(@Valid @RequestBody Dog dog) {
-		System.out.println("Create dog");
 		return dogsRepository.save(dog);
 	}
 

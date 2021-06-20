@@ -1,5 +1,8 @@
 package spring.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,62 +10,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@AllArgsConstructor //cria automaticamente um construtor com todas os atributos da classe como argumento.
+@NoArgsConstructor //cria automaticamente um construtor vazio (sem argumentos).
+@Data //cria automaticamente os métodos toString, equals, hashCode, getters e setters.
 @Entity
 @Table(name = "dog")
 public class Dog {
-
-	private long id;
-	private String nome;
-	private String raca;
-	private String nomeDono;
-	
-	public Dog() {
-		
-	}
-	
-	public Dog(String nome, String raca, String nomeDono) {
-		this.nome = nome;
-		this.raca = raca;
-		this.nomeDono = nomeDono;
-	}
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 	
-	@Column(name = "nome", nullable = false)
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+	@Column(name="nome")
+	private String nome;
 	
-	@Column(name = "raca", nullable = false)
-	public String getRaca() {
-		return raca;
-	}
-	public void setRaca(String raca) {
-		this.raca = raca;
-	}
+	@Column(name="raca")
+	private String raca;
 	
-	@Column(name = "nome_dono", nullable = false)
-	public String getNomeDono() {
-		return nomeDono;
-	}
-	public void setNomeDono(String nomeDono) {
-		this.nomeDono = nomeDono;
-	}
-
-	@Override
-	public String toString() {
-		return "Dog [id=" + id + ", nome=" + nome + ", raca=" + raca + ", nomeDono=" + nomeDono
-				+ "]";
-	}
-	
+	@Column(name="nome_dono")
+	private String nomeDono;
 }

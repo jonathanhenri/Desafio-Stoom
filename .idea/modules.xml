@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Desafio Spring.iml" filepath="$PROJECT_DIR$/.idea/Desafio Spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/Spring/Spring boot/jpa.iml" filepath="$PROJECT_DIR$/Spring/Spring boot/jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring/springboot-jpa-crud-desafio.iml" filepath="$PROJECT_DIR$/Spring/springboot-jpa-crud-desafio.iml" />
     </modules>
   </component>
 </project>
