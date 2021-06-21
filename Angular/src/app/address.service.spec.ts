@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DogService } from './dog.service';
+import { AddressService } from './address.service';
 
-describe('DogService', () => {
+describe('AddressService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DogService = TestBed.get(DogService);
+    const service: AddressService = TestBed.get(AddressService);
     expect(service).toBeTruthy();
   });
 });

@@ -1,0 +1,39 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Address List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Rua</th>
+          <th>Numero</th>
+          <th>Complemento</th>
+          <th>Referencia</th>
+          <th>Cidade</th>
+          <th>Estado</th>
+          <th>Pais</th>
+          <th>ZipCode</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let address of addresss | async">
+          <td>{{address.streetName}}</td>
+          <td>{{address.number}}</td>
+          <td>{{address.complement}}</td>
+          <td>{{address.neighbourhood}}</td>
+          <td>{{address.city}}</td>
+          <td>{{address.state}}</td>
+          <td>{{address.country}}</td>
+          <td>{{address.zipcode}}</td>
+          <td><button (click)="deleteAddress(address.id)" class="btn btn-danger">Delete</button>
+              <button (click)="updateAddress(address.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+              <button (click)="addressDetails(address.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

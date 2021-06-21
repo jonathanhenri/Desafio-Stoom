@@ -5,29 +5,29 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class DogService {
+export class AddressService {
 
-  private baseUrl = 'http://localhost:8080/desafio/api/v1/dogs';
+  private baseUrl = 'http://localhost:8080/desafio/api/v1/address';
 
   constructor(private http: HttpClient) { }
 
-  getDog(id: number): Observable<any> {
+  getAddress(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createDog(dog: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, dog);
+  createAddress(address: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}`, address);
   }
 
-  updateDog(id: number, value: any): Observable<Object> {
+  updateAddress(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  deleteDog(id: number): Observable<any> {
+  deleteAddress(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  getDogsList(): Observable<any> {
+  getAddressList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
 }

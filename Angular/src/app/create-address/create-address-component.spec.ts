@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateDogComponent } from './create-dog.component';
+import { CreateAddressComponent } from './create-address.component';
 
-describe('CreateDogComponent', () => {
-  let component: CreateDogComponent;
-  let fixture: ComponentFixture<CreateDogComponent>;
+describe('CreateAddressComponent', () => {
+  let component: CreateAddressComponent;
+  let fixture: ComponentFixture<CreateAddressComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateDogComponent ]
+      declarations: [ CreateAddressComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateDogComponent);
+    fixture = TestBed.createComponent(CreateAddressComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
