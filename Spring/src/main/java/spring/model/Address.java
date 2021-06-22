@@ -24,7 +24,6 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotNull //TODO TESTAR MSG
 	@Column(name="streetName", nullable = false)
 	private String streetName;
 	

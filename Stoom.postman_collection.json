@@ -6,14 +6,14 @@
 	},
 	"item": [
 		{
-			"name": "Create Dog",
+			"name": "Create Address",
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {
 					"content-type": true
 				}
 			},
 			"request": {
-				"method": "PUT",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -23,10 +23,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nome\": \"request\",\r\n    \"raca\": \"pit\",\r\n    \"nomeDono\": \"jon\"\r\n}"
+					"raw": "{\r\n    \"streetName\": \"Rua poucos dados\",\r\n    \"number\": \"17\",\r\n    \"neighbourhood\": \"arvore na porta\",\r\n    \"city\": \"anapolis\",\r\n    \"state\": \"goias\",\r\n    \"country\": \"brasil\",\r\n    \"zipcode\": \"755053840\"\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/desafio/api/v1/dogs",
+					"raw": "http://localhost:8080/desafio/api/v1/address",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -36,14 +36,51 @@
 						"desafio",
 						"api",
 						"v1",
-						"dogs"
+						"address"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Update Dog",
+			"name": "Create Required Address",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"streetName\": \"Rua request\",\r\n    \"number\": \"17\",\r\n    \"complement\": \"q16\",\r\n    \"neighbourhood\": \"arvore na porta\",\r\n    \"city\": \"anapolis\",\r\n    \"state\": \"goias\",\r\n    \"country\": \"brasil\",\r\n    \"zipcode\": \"755053840\",\r\n    \"latitude\": \"-16.26984451257575\",\r\n    \"longitude\": \"-48.978837664993755\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/desafio/api/v1/address",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"desafio",
+						"api",
+						"v1",
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Address",
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {
 					"content-type": true
@@ -60,20 +97,20 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nome\": \"request3\",\r\n    \"raca\": \"pit\",\r\n    \"nomeDono\": \"jon\"\r\n}"
+					"raw": "{\r\n    \"streetName\": \"Rua poucos dados\",\r\n    \"number\": \"17\",\r\n    \"neighbourhood\": \"arvore na porta\",\r\n    \"city\": \"anapolis\",\r\n    \"state\": \"goias\",\r\n    \"country\": \"brasil\",\r\n    \"zipcode\": \"755053840\"\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/springboot-crud-rest/api/v1/dogs/1",
+					"raw": "http://localhost:8080/desafio/api/v1/address/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"springboot-crud-rest",
+						"desafio",
 						"api",
 						"v1",
-						"dogs",
+						"address",
 						"1"
 					]
 				}
@@ -81,7 +118,7 @@
 			"response": []
 		},
 		{
-			"name": "Dog By ID",
+			"name": "Address By ID",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -92,17 +129,17 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/springboot-crud-rest/api/v1/dogs/1",
+					"raw": "http://localhost:8080/desafio/api/v1/address/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"springboot-crud-rest",
+						"desafio",
 						"api",
 						"v1",
-						"dogs",
+						"address",
 						"1"
 					]
 				}
@@ -121,7 +158,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/desafio/api/v1/dogs",
+					"raw": "http://localhost:8080/desafio/api/v1/address/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -131,7 +168,8 @@
 						"desafio",
 						"api",
 						"v1",
-						"dogs"
+						"address",
+						""
 					]
 				}
 			},
@@ -143,7 +181,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/desafio/api/v1/dogs/1",
+					"raw": "http://localhost:8080/desafio/api/v1/address/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -153,7 +191,7 @@
 						"desafio",
 						"api",
 						"v1",
-						"dogs",
+						"address",
 						"1"
 					]
 				}

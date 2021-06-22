@@ -8,7 +8,6 @@
         <tr>
           <th>Rua</th>
           <th>Numero</th>
-          <th>Complemento</th>
           <th>Referencia</th>
           <th>Cidade</th>
           <th>Estado</th>
@@ -21,7 +20,6 @@
         <tr *ngFor="let address of addresss | async">
           <td>{{address.streetName}}</td>
           <td>{{address.number}}</td>
-          <td>{{address.complement}}</td>
           <td>{{address.neighbourhood}}</td>
           <td>{{address.city}}</td>
           <td>{{address.state}}</td>

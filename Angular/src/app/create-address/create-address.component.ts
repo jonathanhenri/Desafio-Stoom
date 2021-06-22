@@ -2,6 +2,7 @@ import { AddressService } from '../address.service';
 import { Address } from '../address';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-create-address',
@@ -12,11 +13,20 @@ export class CreateAddressComponent implements OnInit {
 
   address: Address = new Address();
   submitted = false;
+  error = false;
 
   constructor(private addressService: AddressService,
     private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    // this = new FormGroup({
+    //   name: new FormControl(this.address.streetName, [
+    //     Validators.required
+    //   ]),
+    //   // alterEgo: new FormControl(this.hero.alterEgo),
+    //   // power: new FormControl(this.hero.power, Validators.required)
+    // });
+
   }
 
   save() {
@@ -25,7 +35,9 @@ export class CreateAddressComponent implements OnInit {
       this.address = new Address();
       this.gotoList();
     },
-    error => console.log(error));
+    error => {
+      this.submitted = false, this.error = true;
+    });
   }
 
   onSubmit() {

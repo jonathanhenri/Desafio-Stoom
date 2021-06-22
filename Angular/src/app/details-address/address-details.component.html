@@ -1,7 +1,10 @@
 <h2>Address Details</h2>
 
-<hr/>
+<hr />
 <div *ngIf="address">
+  <div>
+    <label><b>Complemento: </b></label> {{address.complement}}
+  </div>
   <div>
     <label><b>Latitude: </b></label> {{address.latitude}}
   </div>
@@ -13,5 +16,3 @@
 <br>
 <br>
 <button (click)="list()" class="btn btn-primary">Back to Address List</button><br>
-
-
