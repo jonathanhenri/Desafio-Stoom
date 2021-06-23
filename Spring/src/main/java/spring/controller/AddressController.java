@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import spring.exception.ResourceNotFoundException;
 import spring.model.address.Address;
 import spring.repository.AddressRepository;
+import spring.validation.ValidacaoModel;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,19 +44,24 @@ public class AddressController {
 	}
 
 	@PostMapping("/address")
-	public Address createAddres(@RequestBody Address address) {
+	public Address createAddres(@RequestBody Address address) throws IOException {
+		ValidacaoModel validacaoModel = new ValidacaoModel();
+		validacaoModel.devePreencherLatitudeLongitude(address);
 		return addressRepository.save(address);
 	}
 
 	@PutMapping("/address/{id}")
 	public ResponseEntity<Address> updateAddres(@PathVariable(value = "id") Long addressId,
-											 @Valid @RequestBody Address addressDetails) throws ResourceNotFoundException {
+											 @Valid @RequestBody Address addressDetails)
+			throws ResourceNotFoundException, IOException {
 		Address address = addressRepository.findById(addressId)
 				.orElseThrow(() -> new ResourceNotFoundException("Address not found for this id :: " + addressId));
 		
 		
 		addressDetails.setId(address.getId());
 		final Address updatedAddress = addressRepository.save(addressDetails);
+		ValidacaoModel validacaoModel = new ValidacaoModel();
+		validacaoModel.devePreencherLatitudeLongitude(updatedAddress);
 		return ResponseEntity.ok(updatedAddress);
 	}
 

@@ -8,4 +8,5 @@ import spring.model.address.Address;
 @Repository
 public interface AddressRepository extends JpaRepository<Address, Long>{
 
+
 }

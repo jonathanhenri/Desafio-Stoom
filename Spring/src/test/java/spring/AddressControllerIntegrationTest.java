@@ -26,23 +26,19 @@ public class AddressControllerIntegrationTest {
 	private TestRestTemplate restTemplate;
 
 	@LocalServerPort
-	private int port;
+	private int port = 8080;
 
 	private String getRootUrl() {
 		return "http://localhost:" + port;
 	}
 
-	@Test
-	public void contextLoads() {
-
-	}
 
 	@Test
 	public void testGetAllAddress() {
 		HttpHeaders headers = new HttpHeaders();
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 
-		ResponseEntity<String> response = restTemplate.exchange(getRootUrl() + "/address",
+		ResponseEntity<String> response = restTemplate.exchange(getRootUrl() + "/desafio/api/v1/address",
 				HttpMethod.GET, entity, String.class);
 		
 		assertNotNull(response.getBody());
@@ -50,7 +46,7 @@ public class AddressControllerIntegrationTest {
 
 	@Test
 	public void testGetAddressById() {
-		Address address = restTemplate.getForObject(getRootUrl() + "/address/1", Address.class);
+		Address address = restTemplate.getForObject(getRootUrl() + "/desafio/api/v1/address/1", Address.class);
 		assertNotNull(address);
 	}
 
@@ -68,7 +64,7 @@ public class AddressControllerIntegrationTest {
 		address.setLatitude("-16.26984451257575");
 		address.setLongitude("-48.978837664993755");
 
-		ResponseEntity<Address> postResponse = restTemplate.postForEntity(getRootUrl() + "/address", address, Address.class);
+		ResponseEntity<Address> postResponse = restTemplate.postForEntity(getRootUrl() + "/desafio/api/v1/address", address, Address.class);
 		assertNotNull(postResponse);
 		assertNotNull(postResponse.getBody());
 	}
@@ -76,7 +72,7 @@ public class AddressControllerIntegrationTest {
 	@Test
 	public void testUpdateAddress() {
 		int id = 1;
-		Address address = restTemplate.getForObject(getRootUrl() + "/address/" + id, Address.class);
+		Address address = restTemplate.getForObject(getRootUrl() + "/desafio/api/v1/address/" + id, Address.class);
 		address.setStreetName("Rua saturno");
 		address.setNumber("17");
 		address.setComplement("Q16");
@@ -88,22 +84,22 @@ public class AddressControllerIntegrationTest {
 		address.setLatitude("-16.26984451257575");
 		address.setLongitude("-48.978837664993755");
 
-		restTemplate.put(getRootUrl() + "/address/" + id, address);
+		restTemplate.put(getRootUrl() + "/desafio/api/v1/address/" + id, address);
 
-		Address updatedAddress = restTemplate.getForObject(getRootUrl() + "/address/" + id, Address.class);
+		Address updatedAddress = restTemplate.getForObject(getRootUrl() + "/desafio/api/v1/address/" + id, Address.class);
 		assertNotNull(updatedAddress);
 	}
 
 	@Test
 	public void testDeleteAddress() {
 		int id = 2;
-		Address address = restTemplate.getForObject(getRootUrl() + "/address/" + id, Address.class);
+		Address address = restTemplate.getForObject(getRootUrl() + "/desafio/api/v1/address/" + id, Address.class);
 		assertNotNull(address);
 
 		restTemplate.delete(getRootUrl() + "/address/" + id);
 
 		try {
-			address = restTemplate.getForObject(getRootUrl() + "/address/" + id, Address.class);
+			address = restTemplate.getForObject(getRootUrl() + "/desafio/api/v1/address/" + id, Address.class);
 		} catch (final HttpClientErrorException e) {
 			assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
 		}

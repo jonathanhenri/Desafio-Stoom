@@ -1,6 +1,11 @@
 package spring.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.code.geocoder.Geocoder;
+import com.google.code.geocoder.GeocoderRequestBuilder;
+import com.google.code.geocoder.model.GeocodeResponse;
+import com.google.code.geocoder.model.GeocoderRequest;
+import com.google.code.geocoder.model.GeocoderResult;
 import io.swagger.annotations.Api;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -10,6 +15,8 @@ import spring.model.geocode.GeocodeResult;
 
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.security.InvalidKeyException;
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @Api(tags = "Api Geocode")
@@ -23,10 +30,8 @@ public class GeocodeController {
 		OkHttpClient client = new OkHttpClient();
 		String encodedAddress = URLEncoder.encode(address, "UTF-8");
 		Request request = new Request.Builder()
-				.url("https://google-maps-geocoding.p.rapidapi.com/geocode/json?language=en&address=" + encodedAddress)
+				.url("https://maps.googleapis.com/maps/api/geocode/json?language=pt-BR&address=" + encodedAddress+"&key="+API_KEY)
 				.get()
-				.addHeader("x-rapidapi-host", "google-maps-geocoding.p.rapidapi.com")
-				.addHeader("x-rapidapi-key", API_KEY)
 				.build();
 		
 		ResponseBody responseBody = client.newCall(request).execute().body();
@@ -34,5 +39,4 @@ public class GeocodeController {
 		GeocodeResult result = objectMapper.readValue(responseBody.string(), GeocodeResult.class);
 		return result;
 	}
-	
 }
