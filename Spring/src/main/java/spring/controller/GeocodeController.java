@@ -1,22 +1,18 @@
 package spring.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.code.geocoder.Geocoder;
-import com.google.code.geocoder.GeocoderRequestBuilder;
-import com.google.code.geocoder.model.GeocodeResponse;
-import com.google.code.geocoder.model.GeocoderRequest;
-import com.google.code.geocoder.model.GeocoderResult;
 import io.swagger.annotations.Api;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.ResponseBody;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import spring.model.geocode.GeocodeResult;
-
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.security.InvalidKeyException;
-import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @Api(tags = "Api Geocode")

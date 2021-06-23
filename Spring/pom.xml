@@ -57,11 +57,6 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>tangrammer</groupId>
-			<artifactId>java-net-http-client</artifactId>
-			<version>0.1.2</version>
-		</dependency>
-		<dependency>
 			<groupId>com.google.code.geocoder-java</groupId>
 			<artifactId>geocoder-java</artifactId>
 			<version>0.16</version>

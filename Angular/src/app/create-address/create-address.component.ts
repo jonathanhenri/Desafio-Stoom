@@ -14,7 +14,6 @@ export class CreateAddressComponent implements OnInit {
   address: Address = new Address();
   submitted = false;
   error = false;
-  addressFormGroup = FormGroup;
 
   constructor(private addressService: AddressService,
     private router: Router,private formBuilder: FormBuilder ) {
@@ -43,8 +42,5 @@ export class CreateAddressComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['/address']);
-  }
-  get getControl(){
-    return this.addressFormGroup.controls;
   }
 }
