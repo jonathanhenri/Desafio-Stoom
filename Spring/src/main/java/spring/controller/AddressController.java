@@ -1,12 +1,5 @@
 package spring.controller;
 
-import java.util.HashMap;
-
-import java.util.List;
-import java.util.Map;
-
-import javax.validation.Valid;
-
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +12,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import spring.exception.ResourceNotFoundException;
-import spring.model.Address;
+import spring.model.address.Address;
 import spring.repository.AddressRepository;
+import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @Api(tags = "Api dos Enderecos")
@@ -31,7 +27,7 @@ import spring.repository.AddressRepository;
 public class AddressController {
 	@Autowired
 	private AddressRepository addressRepository;
-
+	
 	@GetMapping("/address")
 	public List<Address> getAllAddress() {
 		return addressRepository.findAll();
@@ -46,7 +42,7 @@ public class AddressController {
 	}
 
 	@PostMapping("/address")
-	public Address createAddres(@Valid @RequestBody Address address) {
+	public Address createAddres(@RequestBody Address address) {
 		return addressRepository.save(address);
 	}
 

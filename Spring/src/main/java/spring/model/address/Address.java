@@ -1,4 +1,4 @@
-package spring.model;
+package spring.model.address;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,27 +24,34 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@NotBlank(message = "{streetName.not.blank}")
 	@Column(name="streetName", nullable = false)
 	private String streetName;
 	
-	@Column(name="number", nullable = false)
+	@NotBlank(message = "{number.not.blank}")
+	@Column(name="number",nullable = false)
 	private String number;
 	
 	@Column(name="complement")
 	private String complement;
 	
+	@NotBlank(message = "{neighbourhood.not.blank}")
 	@Column(name="neighbourhood", nullable = false)
 	private String neighbourhood;
 	
+	@NotBlank(message = "{city.not.blank}")
 	@Column(name="city", nullable = false)
 	private String city;
 	
+	@NotBlank(message = "{state.not.blank}")
 	@Column(name="state", nullable = false)
 	private String state;
 	
+	@NotBlank(message = "{country.not.blank}")
 	@Column(name="country", nullable = false)
 	private String country;
 	
+	@NotBlank(message = "{zipcode.not.blank}")
 	@Column(name="zipcode", nullable = false)
 	private String zipcode;
 	

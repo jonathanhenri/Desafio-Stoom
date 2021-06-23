@@ -1,16 +1,15 @@
 <h3>Create Address</h3>
 <div [hidden]="submitted">
-  <form (ngSubmit)="onSubmit()" name="mainForm">
+  <form (ngSubmit)="onSubmit()" >
     <div class="row">
       <div class="col-xs-4">
-        <label for="streetName">Rua</label>
+        <label for="streetName">Rua*</label>
         <input type="text" class="form-control" id="streetName" required [(ngModel)]="address.streetName"
           name="streetName">
-        <span ng-class="error" ng-show="mainForm.address.streetName.$error.required">Rua é obrigatório</span>
       </div>
       <div class="col-xs-4">
-        <label for="name">Numero</label>
-        <input type="text" class="form-control" id="number" required [(ngModel)]="address.number" name="number">
+        <label for="name">Numero*</label>
+        <input type="text" class="form-control" id="number" ng-required="true" [(ngModel)]="address.number" name="number">
       </div>
       <div class="col-xs-4">
         <label for="name">Complemento</label>
@@ -20,27 +19,27 @@
 
     <div class="row">
       <div class="col-xs-4">
-        <label for="name">Referencia na vizinhança</label>
+        <label for="name">Referencia na vizinhança*</label>
         <input type="text" class="form-control" id="neighbourhood" required [(ngModel)]="address.neighbourhood"
           name="neighbourhood">
       </div>
       <div class="col-xs-4">
-        <label for="name">Cidade</label>
+        <label for="name">Cidade*</label>
         <input type="text" class="form-control" id="city" required [(ngModel)]="address.city" name="city">
       </div>
       <div class="col-xs-4">
-        <label for="name">Estado</label>
+        <label for="name">Estado*</label>
         <input type="text" class="form-control" id="state" required [(ngModel)]="address.state" name="state">
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-4">
-        <label for="name">Pais</label>
+        <label for="name">Pais*</label>
         <input type="text" class="form-control" id="country" required [(ngModel)]="address.country" name="country">
       </div>
       <div class="col-xs-4">
-        <label for="name">Codigo Postal</label>
+        <label for="name">Codigo Postal*</label>
         <input type="text" class="form-control" id="zipcode" required [(ngModel)]="address.zipcode" name="zipcode">
       </div>
       <div class="col-xs-4">
@@ -63,5 +62,5 @@
   <h4>You submitted successfully!</h4>
 </div>
 <div [hidden]="!error">
-  <h4>Erro ao salvar, preencha os requisitos obrigatórios</h4>
+  <h4>Erro ao salvar, preencha os requisitos obrigatórios destacados com '*'</h4>
 </div>
