@@ -27,6 +27,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1")
 public class AddressController {
+	
 	@Autowired
 	private AddressRepository addressRepository;
 	
@@ -34,7 +35,7 @@ public class AddressController {
 	public List<Address> getAllAddress() {
 		return addressRepository.findAll();
 	}
-
+	
 	@GetMapping("/address/{id}")
 	public ResponseEntity<Address> getAddresById(@PathVariable(value = "id") Long addressId)
 			throws ResourceNotFoundException {
@@ -42,17 +43,17 @@ public class AddressController {
 				.orElseThrow(() -> new ResourceNotFoundException("Address not found for this id :: " + addressId));
 		return ResponseEntity.ok().body(address);
 	}
-
+	
 	@PostMapping("/address")
-	public Address createAddres(@RequestBody Address address) throws IOException {
+	public Address createAddress(@RequestBody Address address) throws IOException {
 		ValidacaoModel validacaoModel = new ValidacaoModel();
 		validacaoModel.devePreencherLatitudeLongitude(address);
 		return addressRepository.save(address);
 	}
-
+	
 	@PutMapping("/address/{id}")
 	public ResponseEntity<Address> updateAddres(@PathVariable(value = "id") Long addressId,
-											 @Valid @RequestBody Address addressDetails)
+												@Valid @RequestBody Address addressDetails)
 			throws ResourceNotFoundException, IOException {
 		Address address = addressRepository.findById(addressId)
 				.orElseThrow(() -> new ResourceNotFoundException("Address not found for this id :: " + addressId));
@@ -64,16 +65,17 @@ public class AddressController {
 		final Address updatedAddress = addressRepository.save(addressDetails);
 		return ResponseEntity.ok(updatedAddress);
 	}
-
+	
 	@DeleteMapping("/address/{id}")
 	public Map<String, Boolean> deleteAddres(@PathVariable(value = "id") Long addressId)
 			throws ResourceNotFoundException {
 		Address address = addressRepository.findById(addressId)
 				.orElseThrow(() -> new ResourceNotFoundException("Address not found for this id :: " + addressId));
-
+		
 		addressRepository.delete(address);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
 	}
+	
 }
