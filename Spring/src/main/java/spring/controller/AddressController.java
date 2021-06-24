@@ -59,9 +59,9 @@ public class AddressController {
 		
 		
 		addressDetails.setId(address.getId());
-		final Address updatedAddress = addressRepository.save(addressDetails);
 		ValidacaoModel validacaoModel = new ValidacaoModel();
-		validacaoModel.devePreencherLatitudeLongitude(updatedAddress);
+		validacaoModel.devePreencherLatitudeLongitude(addressDetails);
+		final Address updatedAddress = addressRepository.save(addressDetails);
 		return ResponseEntity.ok(updatedAddress);
 	}
 
